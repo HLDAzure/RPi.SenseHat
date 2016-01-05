@@ -1,5 +1,5 @@
-# RPi.SenseHat
-A complete Windows IoT class library for the Raspberry Pi "Sense HAT" (C#)
+# RPi.SenseHat w/ ServiceBus Lite
+Windows IoT class library for the Raspberry Pi "Sense HAT" with ServiceBus Lite (C#)
 
 The solution contains the following projects:
 *) Rpi.SenseHat
