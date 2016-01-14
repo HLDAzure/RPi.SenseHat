@@ -7,14 +7,15 @@ using ppatierno.AzureSBLite;
 using ppatierno.AzureSBLite.Messaging;
 using Newtonsoft.Json;
 
-namespace RPi.SenseHat.SBLite
+namespace RPi.SenseHat.Demo
 {
-    public class EmitTelemetry : IDisposable
+    class EmitTelemetry : IDisposable
     {
         #region members
-        const string sbConnectionString = "Endpoint=sb://[servicebusname].servicebus.windows.net/;SharedAccessKeyName=[your-sas-name];SharedAccessKey=[your-sas-key]";
-        const string eventHubClient = "[eh-client-name"; //ie. ioteventhub
-        const string partitionID = "[partition-id]"; //ie. 1
+        string sbConnectionString;
+        string eventHubClient;
+        string partitionID;
+        bool enabled;
         ServiceBusConnectionStringBuilder builder;
         MessagingFactory factory;
         EventHubClient client;
@@ -23,6 +24,8 @@ namespace RPi.SenseHat.SBLite
 
         public EmitTelemetry()
         {
+            ParseConfig();
+
             builder = new ServiceBusConnectionStringBuilder(sbConnectionString);
             builder.TransportType = TransportType.Amqp;
 
@@ -31,13 +34,33 @@ namespace RPi.SenseHat.SBLite
             sender = client.CreatePartitionedSender(partitionID);
         }
 
+        private async void ParseConfig()
+        {
+            try
+            {
+                FileIOHelper oFileHelper = new FileIOHelper();
+                List<SettingInfo> lstSettingInfo = oFileHelper.ReadFromDefaultFile("ms-appx:///Assets/config.json");//Call to helper file for getting the details
+
+                sbConnectionString = lstSettingInfo.Single(s => s.keyName == "ConnectionString").keyValue;
+                eventHubClient = lstSettingInfo.Single(s => s.keyName == "EventHubClientName").keyValue;
+                partitionID = lstSettingInfo.Single(s => s.keyName == "PartitionID").keyValue;
+                enabled = bool.Parse(lstSettingInfo.Single(s => s.keyName == "Enabled").keyValue);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
         public void Emit(Object telemetryData)
         {
             var messageString = JsonConvert.SerializeObject(telemetryData);
 
             EventData data = new EventData(Encoding.ASCII.GetBytes(messageString));
 
-            sender.Send(data);
+            if (enabled)
+            {
+                sender.Send(data);
+            }
         }
 
         public void Dispose()

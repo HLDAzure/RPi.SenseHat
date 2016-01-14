@@ -1,0 +1,16 @@
+﻿[{
+    "keyName": "ConnectionString",
+    "keyValue": "Endpoint=sb://[your_sb_name].servicebus.windows.net/;SharedAccessKeyName=rpiDemo;SharedAccessKey=[your_key]"
+  },
+  {
+    "keyName": "EventHubClientName",
+    "keyValue": "[event_hub_name ie.ioteventhub]"
+  },
+  {
+    "keyName": "PartitionID",
+    "keyValue": "[partition_id ie. 1"
+  },
+  {
+    "keyName": "Enabled",
+    "keyValue": "true|false"
+  }]

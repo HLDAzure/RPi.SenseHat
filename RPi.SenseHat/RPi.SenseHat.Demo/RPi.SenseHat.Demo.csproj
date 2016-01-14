@@ -90,6 +90,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +110,9 @@
     <Compile Include="Demos\JoystickPixel.cs" />
     <Compile Include="Demos\SpriteAnimation.cs" />
     <Compile Include="Demos\WriteTemperature.cs" />
+    <Compile Include="FileIOHelper\FileIOHelper.cs" />
+    <Compile Include="Model\SettingInfo.cs" />
+    <Compile Include="SBLite\EmitTelemetry.cs" />
     <Compile Include="SenseHatDemo.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -168,6 +174,11 @@
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Assets_4config_1json__JSONSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

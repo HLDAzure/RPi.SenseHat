@@ -25,7 +25,6 @@ using System;
 using Windows.UI;
 using Emmellsoft.IoT.Rpi.SenseHat;
 using RichardsTech.Sensors;
-using RPi.SenseHat.SBLite;
 
 namespace RPi.SenseHat.Demo.Demos
 {
@@ -41,7 +40,9 @@ namespace RPi.SenseHat.Demo.Demos
 
 		public override void Run()
 		{
-			while (true)
+            EmitTelemetry sbLite = new EmitTelemetry();
+
+            while (true)
 			{
 				Sleep(TimeSpan.FromMilliseconds(50));
 
@@ -60,14 +61,13 @@ namespace RPi.SenseHat.Demo.Demos
                 //Define Object as necessary. JSON Serializer will pass object to EventHub.
                 var telemetryDataPoint = new
                 {
-                    id = "GravityBlob_1",
+                    id = "GravityBlobSensor",
                     time = DateTime.UtcNow.ToString("o"),
-                    vectorX = SenseHat.Sensors.Acceleration.Value.X,
-                    vectorY = SenseHat.Sensors.Acceleration.Value.Y,
-                    vectorZ = SenseHat.Sensors.Acceleration.Value.Z
+                    X = SenseHat.Sensors.Acceleration.Value.X,
+                    Y = SenseHat.Sensors.Acceleration.Value.Y,
+                    Z = SenseHat.Sensors.Acceleration.Value.Z
                 };
-
-                EmitTelemetry sbLite = new EmitTelemetry();
+                
                 sbLite.Emit(telemetryDataPoint);
 
                 SenseHat.Display.CopyColorsToScreen(colors);
