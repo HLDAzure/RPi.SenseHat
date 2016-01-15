@@ -3,25 +3,12 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "AMQPNetLite/1.1.2": {
+      "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
         "compile": {
-          "lib/windows8/Amqp.Store.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
         "runtime": {
-          "lib/windows8/Amqp.Store.dll": {}
-        }
-      },
-      "AzureSBLite/1.3.0": {
-        "dependencies": {
-          "AMQPNetLite": "[1.1.2, )"
-        },
-        "compile": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -1567,25 +1554,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "AMQPNetLite/1.1.2": {
+      "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
         "compile": {
-          "lib/windows8/Amqp.Store.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
         "runtime": {
-          "lib/windows8/Amqp.Store.dll": {}
-        }
-      },
-      "AzureSBLite/1.3.0": {
-        "dependencies": {
-          "AMQPNetLite": "[1.1.2, )"
-        },
-        "compile": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -3221,25 +3195,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "AMQPNetLite/1.1.2": {
+      "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
         "compile": {
-          "lib/windows8/Amqp.Store.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
         "runtime": {
-          "lib/windows8/Amqp.Store.dll": {}
-        }
-      },
-      "AzureSBLite/1.3.0": {
-        "dependencies": {
-          "AMQPNetLite": "[1.1.2, )"
-        },
-        "compile": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -4847,25 +4808,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "AMQPNetLite/1.1.2": {
+      "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
         "compile": {
-          "lib/windows8/Amqp.Store.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
         "runtime": {
-          "lib/windows8/Amqp.Store.dll": {}
-        }
-      },
-      "AzureSBLite/1.3.0": {
-        "dependencies": {
-          "AMQPNetLite": "[1.1.2, )"
-        },
-        "compile": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -6506,25 +6454,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "AMQPNetLite/1.1.2": {
+      "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
         "compile": {
-          "lib/windows8/Amqp.Store.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
         "runtime": {
-          "lib/windows8/Amqp.Store.dll": {}
-        }
-      },
-      "AzureSBLite/1.3.0": {
-        "dependencies": {
-          "AMQPNetLite": "[1.1.2, )"
-        },
-        "compile": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -8132,25 +8067,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "AMQPNetLite/1.1.2": {
+      "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
         "compile": {
-          "lib/windows8/Amqp.Store.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
         "runtime": {
-          "lib/windows8/Amqp.Store.dll": {}
-        }
-      },
-      "AzureSBLite/1.3.0": {
-        "dependencies": {
-          "AMQPNetLite": "[1.1.2, )"
-        },
-        "compile": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -9791,25 +9713,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "AMQPNetLite/1.1.2": {
+      "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
         "compile": {
-          "lib/windows8/Amqp.Store.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
         "runtime": {
-          "lib/windows8/Amqp.Store.dll": {}
-        }
-      },
-      "AzureSBLite/1.3.0": {
-        "dependencies": {
-          "AMQPNetLite": "[1.1.2, )"
-        },
-        "compile": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/windows81/Amqp.Store.dll": {},
-          "lib/windows81/AzureSBLite.WinRT.dll": {}
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.CSharp/4.0.0": {
@@ -11418,84 +11327,17 @@
     }
   },
   "libraries": {
-    "AMQPNetLite/1.1.2": {
-      "sha512": "SFenW4KHVkidIhPcE1LGAYBRSQrsPS8/0nwLDew59VHP7ZEp0jHFAkoWE44bHckx2ZsJbt+SjxZyUo6iAZIa8w==",
+    "Microsoft.Azure.Devices.Client/1.0.0-preview-009": {
+      "sha512": "f9oMS8AZA3GUI6BZHhFuHBJ/ppD/fHUdhOV25cXjfNCJXtABM2J9SFjUL6kG2hbSLPtFbiDSpGNSSMUg+HRJVA==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "AMQPNetLite.nuspec",
-        "lib/net35/Amqp.Net35.dll",
-        "lib/net35/Amqp.Net35.pdb",
-        "lib/net45/Amqp.Net.dll",
-        "lib/net45/Amqp.Net.pdb",
-        "lib/netcf39/Amqp.NetCF39.dll",
-        "lib/netcf39/Amqp.NetCF39.pdb",
-        "lib/netcf39/DeployFileList.txt",
-        "lib/netmf42/Amqp.NetMF.dll",
-        "lib/netmf42/Amqp.NetMF.pdb",
-        "lib/netmf42/be/Amqp.NetMF.pdb",
-        "lib/netmf42/be/Amqp.NetMF.pdbx",
-        "lib/netmf42/be/Amqp.NetMF.pe",
-        "lib/netmf42/le/Amqp.NetMF.pdb",
-        "lib/netmf42/le/Amqp.NetMF.pdbx",
-        "lib/netmf42/le/Amqp.NetMF.pe",
-        "lib/netmf43/Amqp.NetMF.dll",
-        "lib/netmf43/Amqp.NetMF.pdb",
-        "lib/netmf43/be/Amqp.NetMF.pdb",
-        "lib/netmf43/be/Amqp.NetMF.pdbx",
-        "lib/netmf43/be/Amqp.NetMF.pe",
-        "lib/netmf43/le/Amqp.NetMF.pdb",
-        "lib/netmf43/le/Amqp.NetMF.pdbx",
-        "lib/netmf43/le/Amqp.NetMF.pe",
-        "lib/portable-netcore451+wpa81/Amqp.NetCore.dll",
-        "lib/portable-netcore451+wpa81/Amqp.NetCore.pdb",
-        "lib/portable-netcore451+wpa81/Amqp.NetCore.pri",
-        "lib/windows8/Amqp.Store.dll",
-        "lib/windows8/Amqp.Store.pdb",
-        "lib/windows8/Amqp.Store.pri",
-        "lib/windowsphone8/Amqp.WP.dll",
-        "lib/windowsphone8/Amqp.WP.pdb",
-        "package/services/metadata/core-properties/0902e422df2a44709226e9708ee3cb9f.psmdcp"
-      ]
-    },
-    "AzureSBLite/1.3.0": {
-      "sha512": "ppermJ5Xft2ANZufviIIoGRHRvmKGHRccNd4NouVps3XuV9aPqm6jNy9Z3QTQI/7eOrVFnFrsePYyQzjGA4p8Q==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "AzureSBLite.nuspec",
-        "lib/net39-cf/Amqp.NetCF39.dll",
-        "lib/net39-cf/Amqp.NetCF39.pdb",
-        "lib/net39-cf/AzureSBLite.NetCf39.dll",
-        "lib/net39-cf/AzureSBLite.NetCf39.pdb",
-        "lib/net39-cf/DeployFileList.txt",
-        "lib/net45/Amqp.Net.dll",
-        "lib/net45/Amqp.Net.pdb",
-        "lib/net45/AzureSBLite.Net.dll",
-        "lib/net45/AzureSBLite.Net.pdb",
-        "lib/netmf43/Amqp.NetMF.dll",
-        "lib/netmf43/Amqp.NetMF.pdb",
-        "lib/netmf43/AzureSBLite.NetMf.dll",
-        "lib/netmf43/AzureSBLite.NetMf.pdb",
-        "lib/netmf43/be/Amqp.NetMF.pdbx",
-        "lib/netmf43/be/Amqp.NetMF.pe",
-        "lib/netmf43/be/AzureSBLite.NetMf.pdb",
-        "lib/netmf43/be/AzureSBLite.NetMf.pdbx",
-        "lib/netmf43/be/AzureSBLite.NetMf.pe",
-        "lib/netmf43/le/Amqp.NetMF.pdbx",
-        "lib/netmf43/le/Amqp.NetMF.pe",
-        "lib/netmf43/le/AzureSBLite.NetMf.pdb",
-        "lib/netmf43/le/AzureSBLite.NetMf.pdbx",
-        "lib/netmf43/le/AzureSBLite.NetMf.pe",
-        "lib/windows81/Amqp.Store.dll",
-        "lib/windows81/Amqp.Store.pdb",
-        "lib/windows81/Amqp.Store.pri",
-        "lib/windows81/AzureSBLite.WinRT.dll",
-        "lib/windows81/AzureSBLite.WinRT.pdb",
-        "lib/windows81/AzureSBLite.WinRT.pri",
-        "package/services/metadata/core-properties/52998b21b4794fbc978e1cc9012f3e93.psmdcp"
+        "lib/net45/Microsoft.Azure.Devices.Client.dll",
+        "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd",
+        "Microsoft.Azure.Devices.Client.nuspec",
+        "package/services/metadata/core-properties/723e2c71e3a3454ca929c44a457f4aca.psmdcp",
+        "thirdpartynotice.txt"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -14872,7 +14714,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "AzureSBLite >= 1.3.0",
+      "Microsoft.Azure.Devices.Client >= 1.0.0-preview-009",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 8.0.2"
     ],

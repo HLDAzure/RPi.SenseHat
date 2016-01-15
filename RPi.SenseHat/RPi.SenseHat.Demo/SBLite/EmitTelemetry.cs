@@ -3,47 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ppatierno.AzureSBLite;
-using ppatierno.AzureSBLite.Messaging;
 using Newtonsoft.Json;
+using Microsoft.Azure.Devices.Client;
+using Microsoft.Azure.Devices.Client.Exceptions;
 
 namespace RPi.SenseHat.Demo
 {
     class EmitTelemetry : IDisposable
     {
+        public double TippingPoint { get; set; }
         #region members
-        string sbConnectionString;
-        string eventHubClient;
-        string partitionID;
+        private DeviceClient _DeviceClient = null;
+        string deviceConnectionString;
         bool enabled;
-        ServiceBusConnectionStringBuilder builder;
-        MessagingFactory factory;
-        EventHubClient client;
-        EventHubSender sender;
         #endregion 
 
         public EmitTelemetry()
         {
+            TippingPoint = 0;
             ParseConfig();
 
-            builder = new ServiceBusConnectionStringBuilder(sbConnectionString);
-            builder.TransportType = TransportType.Amqp;
-
-            factory = MessagingFactory.CreateFromConnectionString(sbConnectionString);
-            client = factory.CreateEventHubClient(eventHubClient);
-            sender = client.CreatePartitionedSender(partitionID);
+            initSensor();
         }
 
-        private async void ParseConfig()
+        public async void initSensor()
+        {
+            _DeviceClient = DeviceClient.CreateFromConnectionString(deviceConnectionString, TransportType.Http1);
+            ReceiveCommands();
+        }
+
+        private void ParseConfig()
         {
             try
             {
                 FileIOHelper oFileHelper = new FileIOHelper();
                 List<SettingInfo> lstSettingInfo = oFileHelper.ReadFromDefaultFile("ms-appx:///Assets/config.json");//Call to helper file for getting the details
 
-                sbConnectionString = lstSettingInfo.Single(s => s.keyName == "ConnectionString").keyValue;
-                eventHubClient = lstSettingInfo.Single(s => s.keyName == "EventHubClientName").keyValue;
-                partitionID = lstSettingInfo.Single(s => s.keyName == "PartitionID").keyValue;
+                deviceConnectionString = lstSettingInfo.Single(s => s.keyName == "DeviceConnectionString").keyValue;
+
                 enabled = bool.Parse(lstSettingInfo.Single(s => s.keyName == "Enabled").keyValue);
             }
             catch (Exception ex)
@@ -51,22 +48,45 @@ namespace RPi.SenseHat.Demo
             }
         }
 
-        public void Emit(Object telemetryData)
+        public async void Emit(Object telemetryDataPoint)
         {
-            var messageString = JsonConvert.SerializeObject(telemetryData);
+            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
 
-            EventData data = new EventData(Encoding.ASCII.GetBytes(messageString));
+            var message = new Message(Encoding.ASCII.GetBytes(messageString));
 
             if (enabled)
             {
-                sender.Send(data);
+                try
+                {
+                    await _DeviceClient.SendEventAsync(message);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+        }
+
+        private async void ReceiveCommands()
+        {
+            Message receivedMessage;
+            string messageData;
+
+            while (true)
+            {
+                receivedMessage = await _DeviceClient.ReceiveAsync();
+                if (receivedMessage != null)
+                {
+                    messageData = Encoding.ASCII.GetString(receivedMessage.GetBytes());
+                    TippingPoint = double.Parse(messageData);
+                    await _DeviceClient.CloseAsync();
+                    await _DeviceClient.CompleteAsync(receivedMessage);
+                }
             }
         }
 
         public void Dispose()
         {
-            client.Close();
-            factory.Close();
+            _DeviceClient = null;
         }
     }
 }

@@ -56,16 +56,18 @@ namespace RPi.SenseHat.Demo.Demos
 					continue;
 				}
 
-				Color[,] colors = CreateGravityBlobScreen(SenseHat.Sensors.Acceleration.Value);
+				Color[,] colors = CreateGravityBlobScreen(SenseHat.Sensors.Acceleration.Value, sbLite.TippingPoint);
 
-                //Define Object as necessary. JSON Serializer will pass object to EventHub.
+                var alarmTrip = (SenseHat.Sensors.Acceleration.Value.Z < sbLite.TippingPoint) ? 1 : 0;
+
                 var telemetryDataPoint = new
                 {
-                    id = "GravityBlobSensor",
+                    id = "GravityBlob",
                     time = DateTime.UtcNow.ToString("o"),
                     X = SenseHat.Sensors.Acceleration.Value.X,
                     Y = SenseHat.Sensors.Acceleration.Value.Y,
-                    Z = SenseHat.Sensors.Acceleration.Value.Z
+                    Z = SenseHat.Sensors.Acceleration.Value.Z,
+                    StabilityAlert = alarmTrip
                 };
                 
                 sbLite.Emit(telemetryDataPoint);
@@ -76,7 +78,7 @@ namespace RPi.SenseHat.Demo.Demos
 			}
 		}
 
-		private static Color[,] CreateGravityBlobScreen(Vector3 vector)
+		private static Color[,] CreateGravityBlobScreen(Vector3 vector, double tippingPoint)
 		{
 			double x0 = (vector.X + 1) * 5.5 - 2;
 			double y0 = (vector.Y + 1) * 5.5 - 2;
@@ -85,7 +87,7 @@ namespace RPi.SenseHat.Demo.Demos
 
 			var colors = new Color[8, 8];
 
-			bool isUpsideDown = vector.Z < 0;
+			bool isBeyondTolerance = vector.Z < tippingPoint;
 
 			for (int y = 0; y < 8; y++)
 			{
@@ -106,7 +108,7 @@ namespace RPi.SenseHat.Demo.Demos
 						colorIntensity = 255;
 					}
 
-					colors[x, y] = isUpsideDown
+					colors[x, y] = isBeyondTolerance
 						? Color.FromArgb(255, (byte)colorIntensity, 0, 0)
 						: Color.FromArgb(255, 0, (byte)colorIntensity, 0);
 				}
