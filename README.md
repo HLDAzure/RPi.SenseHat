@@ -1,11 +1,13 @@
-# RPi.SenseHat w/ ServiceBus Lite
-Windows IoT class library for the Raspberry Pi "Sense HAT" with ServiceBus Lite (C#)
+# RPi.SenseHat w/ IoT Hub Devices (Windows.Azure.Devices) - preview
+Windows IoT class library for the Raspberry Pi "Sense HAT" and IoT Hub (C#)
 
 The solution contains the following projects:
 *) Rpi.SenseHat
 *) RPi.SenseHat.Demo
 *) RPi.SenseHat.Tools
 *) RT.IoT.Sensors
+
+RPi.SenseHat.Demo -> Assets -> config.json : modify settings to enable your specific device and IoT Hub
 
 The Rpi.SenseHat is the main library. It contains a nice API to the Raspberry Sense HAT in C#.
 The Rpi.SenseHat is dependent on the RT.IoT.Sensors project, which is a library for managing the sensor readings from the Sense HAT. That project is currently a copy of another github repository until no NuGet of it is available.
